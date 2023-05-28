@@ -487,11 +487,13 @@ export default class ReconnectingWebSocket {
             return;
         }
         this._debug('removeListeners');
-        this._ws.removeEventListener('open', this._handleOpen);
-        this._ws.removeEventListener('close', this._handleClose);
-        this._ws.removeEventListener('message', this._handleMessage);
-        // @ts-ignore
-        this._ws.removeEventListener('error', this._handleError);
+        setTimeout(() => {
+            this._ws!.removeEventListener('open', this._handleOpen);
+            this._ws!.removeEventListener('close', this._handleClose);
+            this._ws!.removeEventListener('message', this._handleMessage);
+            // @ts-ignore
+            this._ws.removeEventListener('error', this._handleError);
+        }, 0);
     }
 
     private _addListeners() {

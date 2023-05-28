@@ -175,3 +175,10 @@ CLOSED     3 The connection is closed or couldn't be opened.
 ## License
 
 MIT
+
+# Fork reason - bugfix
+
+The library was removing event listener on the "close event". A underlying socket implementation
+asynchronously emits an "error" event after an close event. That caused an unhandled "error" event
+and the process would crash. The removing of event listeners was made async so that that final error
+event can be handled.
