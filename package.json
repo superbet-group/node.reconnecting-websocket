@@ -1,5 +1,5 @@
 {
-    "name": "reconnecting-websocket",
+    "name": "@superbet-group/node.reconnecting-websocket",
     "version": "4.4.2",
     "description": "Reconnecting WebSocket",
     "main": "./dist/reconnecting-websocket-cjs.js",
